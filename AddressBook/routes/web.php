@@ -18,4 +18,4 @@ Route::get('/', function () {
 });
 
 
-Route::resource('contacts', 'ContactController');
+

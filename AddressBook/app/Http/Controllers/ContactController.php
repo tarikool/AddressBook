@@ -14,7 +14,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        header("Access-Control-Allow-Origin: *");
+        
         $contacts =  Contact::all();
         return response()->json($contacts, 200);
     }
@@ -37,7 +37,7 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        header("Access-Control-Allow-Origin: *");
+        
         $contact = Contact::create( $request->all());
         return response()->json($contact, 201);
     }
@@ -61,8 +61,8 @@ class ContactController extends Controller
      */
     public function edit(Contact $contact)
     {
-        header("Access-Control-Allow-Origin: *");
-        return response()->json($contact,);
+       
+        return response()->json($contact, 200);
     }
 
     /**
@@ -86,6 +86,8 @@ class ContactController extends Controller
      */
     public function destroy(Contact $contact)
     {
-        //
+        $contact->delete();
+
+         return response()->json(null, 204);  
     }
 }
